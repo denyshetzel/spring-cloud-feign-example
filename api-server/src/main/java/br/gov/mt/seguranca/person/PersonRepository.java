@@ -1,4 +1,4 @@
-package com.example.demo;
+package br.gov.mt.seguranca.person;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,8 +11,8 @@ public class PersonRepository {
 	
 	public Collection<PersonDTO> findAll(){
 		return Arrays.asList(
-				new PersonDTO("Jose", new Address("78075000")),
-				new PersonDTO("Maria", new Address("78075000"))
+				new PersonDTO("Jose", new AddressDTO("78075000")),
+				new PersonDTO("Maria", new AddressDTO("78075000"))
 				);
 	}
 	

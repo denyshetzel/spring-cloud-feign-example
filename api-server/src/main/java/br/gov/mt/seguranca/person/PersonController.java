@@ -1,6 +1,4 @@
-package com.example.demo;
-
-import java.util.Collection;
+package br.gov.mt.seguranca.person;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
-
 @RestController
 @RequestMapping(value = "/api/persons", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
@@ -19,17 +16,18 @@ public class PersonController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PersonController.class);
 	
-	private final PersonRepository personRepository;
+	//private final PersonRepository personRepository;
 	
 	@RequestMapping(value = "/query")
-	public ResponseEntity<Collection<PersonDTO>> findByQuery(PersonQuery personQuery){
-		LOGGER.info("call findByQuery with param PersonQuery: {}", personQuery);
+	public ResponseEntity<PersonDTO> findByQuery(PersonQuery personQuery){
+		LOGGER.info("call server findByQuery with param PersonQuery: {}", personQuery);
 		
-		Collection<PersonDTO> persons = personRepository.findAll();
+		PersonDTO personDTO = new PersonDTO();
+		personDTO.setName(personQuery.getName());
+		personDTO.setAddress(personQuery.getAddress());
 		
-		return ResponseEntity.ok(persons);
+		return ResponseEntity.ok(personDTO);
 	}
-	
 	
 	
 }

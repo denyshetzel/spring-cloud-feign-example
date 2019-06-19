@@ -1,4 +1,4 @@
-package com.example.demo;
+package br.gov.mt.seguranca.person;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonDTO {
+public class PersonQuery {
 
 	private String name;
 	
-	private Address address;
-
+	private AddressDTO address;
+	
 }
