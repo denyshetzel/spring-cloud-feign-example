@@ -6,9 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import feign.querymap.BeanQueryMapEncoder;
-
-@FeignClient(url = "http://localhost:8080/api/persons", name = "person-service", configuration = {BeanQueryMapEncoder.class})
+@FeignClient(url = "http://localhost:8080/api/persons", name = "person-service")
 public interface PersonClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value ="/query")

@@ -2,6 +2,7 @@ package br.gov.mt.seguranca.srop;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,20 +16,18 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Envolvido {
 
-	/*
-	 * public enum TipoEnvolvido{ COMUNICANTE, SUSPEITO, VITIMA, TESTEMUNHA, TODOS }
-	 */
-	
+	public enum TipoEnvolvido {
+		COMUNICANTE, SUSPEITO, VITIMA, TESTEMUNHA, TODOS
+	}
+
 	private String nome;
 
-	//private @Default TipoEnvolvido tipoEnvolvido = TipoEnvolvido.TODOS;
-	
-	//private Telefone telefone;
+	private @Default TipoEnvolvido tipoEnvolvido = TipoEnvolvido.TODOS;
 
-	/*
-	 * public boolean tipoEnvolvidoDiferenteTodos() { return
-	 * !TipoEnvolvido.TODOS.equals(tipoEnvolvido); }
-	 */
-	
-	
+	private Telefone telefone;
+
+	public boolean tipoEnvolvidoDiferenteTodos() {
+		return !TipoEnvolvido.TODOS.equals(tipoEnvolvido);
+	}
+
 }

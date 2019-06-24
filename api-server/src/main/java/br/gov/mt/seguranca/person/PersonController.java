@@ -2,6 +2,7 @@ package br.gov.mt.seguranca.person;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +20,14 @@ public class PersonController {
 	//private final PersonRepository personRepository;
 	
 	@RequestMapping(value = "/query")
-	public ResponseEntity<PersonDTO> findByQuery(PersonQuery personQuery){
+	public HttpEntity<PersonQuery> findByQuery(PersonQuery personQuery){
 		LOGGER.info("call server findByQuery with param PersonQuery: {}", personQuery);
 		
 		PersonDTO personDTO = new PersonDTO();
 		personDTO.setName(personQuery.getName());
 		personDTO.setAddress(personQuery.getAddress());
 		
-		return ResponseEntity.ok(personDTO);
+		return ResponseEntity.ok(personQuery);
 	}
 	
 	

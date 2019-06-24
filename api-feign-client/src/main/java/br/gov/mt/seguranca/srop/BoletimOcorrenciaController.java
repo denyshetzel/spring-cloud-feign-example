@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +34,7 @@ public class BoletimOcorrenciaController /*extends BaseController implements Bol
 	}
 
 	@GetMapping(value = "/dadosboletim-dois")
-	public ResponseEntity<DadosBoletim> consultaPorDadosDoBoletimDois(@ModelAttribute DadosBoletim dadosBoletim) {
+	public ResponseEntity<DadosBoletim> consultaPorDadosDoBoletimDois(DadosBoletim dadosBoletim) {
 		log.info("Consultando por dados do Boletim {} com paginação {}", dadosBoletim);
 		
 		return boletimOcorrenciaClient.query(dadosBoletim);

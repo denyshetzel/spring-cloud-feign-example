@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface BoletimOcorrenciaClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value ="/dadosboletim-dois")
-	ResponseEntity<DadosBoletim> query(@SpringQueryMap DadosBoletim dadosBoletimDTO);
+	ResponseEntity<DadosBoletim> query(@SpringQueryMap(encoded = true) DadosBoletim dadosBoletimDTO);
 	
 }

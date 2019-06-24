@@ -33,7 +33,7 @@ public class BoletimOcorrenciaController /*extends BaseController implements Bol
 	}
 
 	@GetMapping(value = "/dadosboletim-dois")
-	public ResponseEntity<DadosBoletim> consultaPorDadosDoBoletimDois(@ModelAttribute DadosBoletim dadosBoletim) {
+	public ResponseEntity<DadosBoletim> consultaPorDadosDoBoletimDois(DadosBoletim dadosBoletim) {
 		log.info("Consultando por dados do Boletim {} com paginação {}", dadosBoletim);
 		
 		return ResponseEntity.ok(dadosBoletim);
