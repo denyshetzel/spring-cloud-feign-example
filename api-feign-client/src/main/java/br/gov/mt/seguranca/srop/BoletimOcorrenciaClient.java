@@ -1,7 +1,6 @@
 package br.gov.mt.seguranca.srop;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface BoletimOcorrenciaClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value ="/dadosboletim-dois")
-	ResponseEntity<DadosBoletim> query(@SpringQueryMap(encoded = true) DadosBoletim dadosBoletimDTO);
+	ResponseEntity<DadosBoletim> query(DadosBoletim dadosBoletimDTO);
 	
 }

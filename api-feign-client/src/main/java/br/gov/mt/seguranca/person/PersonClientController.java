@@ -11,6 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -30,7 +31,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(PersonClientControl
 	
 	private final PersonClient personClient;
 	
-	@RequestMapping(value = "/query")
+	@GetMapping(value = "/query")
 	public ResponseEntity<PersonDTO> findByQuery(PersonQuery personQuery){
 		LOGGER.info("call client findByQuery with param PersonQuery: {}", personQuery);
 		

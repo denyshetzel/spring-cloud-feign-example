@@ -18,7 +18,7 @@ import feign.codec.EncodeException;
  * order of included query parameters not guaranteed, and as usual, if any value
  * is null, it will be left out
  */
-public class BeanNestedPropertyQueryMapEncoder implements QueryMapEncoder {
+public class BeanPropertyQueryMapEncoder implements QueryMapEncoder {
 
 	@Override
 	public Map<String, Object> encode(Object object) throws EncodeException {

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,7 @@ public class PersonController {
 	
 	//private final PersonRepository personRepository;
 	
-	@RequestMapping(value = "/query")
+	@PostMapping(value = "/query")
 	public HttpEntity<PersonQuery> findByQuery(PersonQuery personQuery){
 		LOGGER.info("call server findByQuery with param PersonQuery: {}", personQuery);
 		
