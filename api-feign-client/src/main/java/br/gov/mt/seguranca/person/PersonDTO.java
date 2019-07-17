@@ -15,7 +15,7 @@ public class PersonDTO implements Serializable{
 
 	private String name;
 	
-	private AddressDTO address;
+	private AddressQuery address;
 
 	@Override
 	public boolean equals(Object obj) {

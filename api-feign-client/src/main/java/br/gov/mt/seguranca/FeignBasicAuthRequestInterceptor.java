@@ -9,15 +9,20 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import feign.Request.Body;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 
 @Configurable
 public class FeignBasicAuthRequestInterceptor implements RequestInterceptor {
+    @Autowired
+    private ObjectMapper objectMapper;
+
     public FeignBasicAuthRequestInterceptor() {}
 
     @Override
@@ -26,7 +31,6 @@ public class FeignBasicAuthRequestInterceptor implements RequestInterceptor {
         if (template.method().equals("GET") && template.requestBody().asBytes() != null) {
             try {
                 JsonNode jsonNode = new ObjectMapper().readTree(template.requestBody().asBytes());
-                //template.body(null);
                 Map<String, Collection<String>> queries = new HashMap<>();
                 //feign 不支持 GET 方法传 POJO, json body转query
                 buildQuery(jsonNode, "", queries);
@@ -35,6 +39,7 @@ public class FeignBasicAuthRequestInterceptor implements RequestInterceptor {
                 e.printStackTrace();
             }
         }
+        template.body(Body.empty());
     }
 
     //处理 get-pojo贯穿
@@ -60,7 +65,7 @@ public class FeignBasicAuthRequestInterceptor implements RequestInterceptor {
             Iterator<Map.Entry<String, JsonNode>> it = jsonNode.fields();
             while (it.hasNext()) {
                 Map.Entry<String, JsonNode> entry = it.next();
-                if (org.springframework.util.StringUtils.hasText(path)) {
+                if (StringUtils.hasText(path)) {
                     buildQuery(entry.getValue(), path + "." + entry.getKey(), queries);
                 } else { //根节点
                     buildQuery(entry.getValue(), entry.getKey(), queries);

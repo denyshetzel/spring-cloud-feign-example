@@ -11,7 +11,7 @@ public class PersonQuery {
 
 	private String name;
 	
-	private AddressDTO address;
+	private AddressQuery address;
 
 	public String getName() {
 		return name;
@@ -21,11 +21,11 @@ public class PersonQuery {
 		this.name = name;
 	}
 
-	public AddressDTO getAddress() {
+	public AddressQuery getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressDTO address) {
+	public void setAddress(AddressQuery address) {
 		this.address = address;
 	}
 

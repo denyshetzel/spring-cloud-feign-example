@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -31,11 +32,11 @@ private static final Logger LOGGER = LoggerFactory.getLogger(PersonClientControl
 	
 	private final PersonClient personClient;
 	
-	@GetMapping(value = "/query")
-	public ResponseEntity<PersonDTO> findByQuery(PersonQuery personQuery){
-		LOGGER.info("call client findByQuery with param PersonQuery: {}", personQuery);
+	@GetMapping(value = "/query-client")
+	public ResponseEntity<PersonDTO> findByQuery(PersonQuery personQuery, Pageable pageable){
+		LOGGER.info("call client findByQuery with param PersonQuery: {} e pageable", personQuery, pageable);
 		
-		return personClient.query(personQuery);
+		return personClient.query(personQuery, pageable);
 	}
 	
 	@RequestMapping(value = "/query-dois")
