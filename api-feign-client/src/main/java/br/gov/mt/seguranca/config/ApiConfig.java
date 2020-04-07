@@ -1,4 +1,4 @@
-package br.gov.mt.seguranca;
+package br.gov.mt.seguranca.config;
 
 import java.util.List;
 import java.util.Locale;

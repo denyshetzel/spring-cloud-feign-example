@@ -11,8 +11,8 @@ public class PersonRepository {
 	
 	public Collection<PersonDTO> findAll(){
 		return Arrays.asList(
-				new PersonDTO("Jose", new AddressDTO("78075000")),
-				new PersonDTO("Maria", new AddressDTO("78075000"))
+				new PersonDTO("Jose", new AddressDTO("78000000")),
+				new PersonDTO("Maria", new AddressDTO("78000001"))
 				);
 	}
 	

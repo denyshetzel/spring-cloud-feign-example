@@ -11,6 +11,6 @@ public class PersonQuery {
 
 	private String name;
 	
-	private AddressDTO address;
+	private AddressQuery address;
 	
 }
